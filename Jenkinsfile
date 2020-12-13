@@ -4,13 +4,26 @@ pipeline{
     stages{
         stage ('build'){
             steps{
-            echo 'am building'
+            mvn clean
             }
         }
         stage ('test'){
             steps{
-                echo 'am testing'
+                mvn test
             }
+            steps{
+                
+                 input {
+    message 'Proceed with Deployment?'
+    id 'deployment'
+    ok 'Proceed'
+    submitterParameter 'approver'
+    parameters {
+      booleanParam defaultValue: false, description: '', name: 'Proceed'
+    }
+  }
+            }
+
         }
         
     }
