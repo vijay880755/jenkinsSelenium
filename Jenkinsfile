@@ -10,10 +10,7 @@ pipeline{
         stage ('test'){
             steps{
                 mvn test
-            }
-            steps{
-                
-                 input {
+                input {
     message 'Proceed with Deployment?'
     id 'deployment'
     ok 'Proceed'
@@ -21,7 +18,8 @@ pipeline{
     parameters {
       booleanParam defaultValue: false, description: '', name: 'Proceed'
     }
-  }
+            }
+     
             }
 
         }
