@@ -10,16 +10,6 @@ pipeline{
         stage ('test'){
             steps{
                 mvn test
-                input {
-    message 'Proceed with Deployment?'
-    id 'deployment'
-    ok 'Proceed'
-    submitterParameter 'approver'
-    parameters {
-      booleanParam defaultValue: false, description: '', name: 'Proceed'
-    }
-            }
-     
             }
 
         }
