@@ -4,6 +4,7 @@ pipeline{
     stages{
         stage ('build'){
             steps{
+                input 'Hi'
             mvn clean
             }
         }
