@@ -1,5 +1,7 @@
 package com.jenkins.selenium;
 
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
@@ -18,7 +20,8 @@ public class NewTest {
   @BeforeClass
   public void beforeClass() {
 	  
-	  System.setProperty("webdriver.gecko.driver", "D:\\selenium\\geckodriver.exe");
+	  File file = new File("src/main/resources/geckodriver.exe");
+	  System.setProperty("webdriver.gecko.driver", file.getAbsolutePath());
 	  driver = new FirefoxDriver();
 	  
   }
