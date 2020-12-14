@@ -12,6 +12,7 @@ pipeline{
             steps{
                 input 'Proceed with Test ?'
                 mvn test
+                
             }
 
         }
