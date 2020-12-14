@@ -19,11 +19,18 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
+                withMaven(maven: 'Maven3'){
+                    sh 'mvn test'
+              }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying'
+                input ('Proceed with Deployment ?')
+                withMaven(maven: 'Maven3'){
+                    sh 'mvn clean deploy'
+              }
             }
         }
     }
