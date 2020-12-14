@@ -4,13 +4,13 @@ pipeline{
     stages{
         stage ('build'){
             steps{
-            input 'Hi'
+            input 'Proceed with Clean ?'
             mvn clean
             }
         }
         stage ('test'){
             steps{
-                echo "Hello Maven"
+                input 'Proceed with Test ?'
                 mvn test
             }
 
