@@ -11,11 +11,8 @@ pipeline {
             steps {
                 input ('Start the build')
                 echo 'Building'
-                withMaven(
-                    maven: Maven3,
-                    mavenLocalRepo: '.repository',
-                    mavenSettingsConfig: 'my-maven-settings'){
-               sh "mvn clean verify"
+                withMaven(maven: 'Maven3'){
+                    sh 'mvn clean compile'
               }
             }
         }
