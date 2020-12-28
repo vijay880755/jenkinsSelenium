@@ -20,7 +20,7 @@ public class NewTest {
   @BeforeClass
   public void beforeClass() {
 	  
-	  File file = new File("src/main/resources/geckodriver.exe");
+	  File file = new File("/var/lib/jenkins/workspace/jenkinsSelenium/src/main/resources/geckodriver.exe");
 	  System.setProperty("webdriver.gecko.driver", file.getAbsolutePath());
 	  driver = new FirefoxDriver();
 	  
